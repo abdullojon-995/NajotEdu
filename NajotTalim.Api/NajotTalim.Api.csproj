@@ -15,10 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\NajotTalim.Infrastructure\NajotTalim.Infrastructure.csproj" />
   </ItemGroup>
 

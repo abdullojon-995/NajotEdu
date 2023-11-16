@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NajotTalim.Api", "NajotTali
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NajotTalim.Domain", "NajotTalim.Domain\NajotTalim.Domain.csproj", "{C9210095-8E37-4579-B6D4-9AC5BFECEEB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NajotTalim.Infrastructure", "NajotTalim.Infrastructure\NajotTalim.Infrastructure.csproj", "{6C78BBF7-F18E-4DF1-A2B4-6CC07ED654C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NajotTalim.Infrastructure", "NajotTalim.Infrastructure\NajotTalim.Infrastructure.csproj", "{6C78BBF7-F18E-4DF1-A2B4-6CC07ED654C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NajotTalim.Application", "NajotTalim.Application\NajotTalim.Application.csproj", "{E16085C4-BD5B-463F-B123-69C366340CE7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{6C78BBF7-F18E-4DF1-A2B4-6CC07ED654C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C78BBF7-F18E-4DF1-A2B4-6CC07ED654C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C78BBF7-F18E-4DF1-A2B4-6CC07ED654C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E16085C4-BD5B-463F-B123-69C366340CE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E16085C4-BD5B-463F-B123-69C366340CE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E16085C4-BD5B-463F-B123-69C366340CE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E16085C4-BD5B-463F-B123-69C366340CE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
