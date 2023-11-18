@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NajotTalim.Application.Abstractions;
 using NajotTalim.Infrastructure.Abstractions;
-using NajotTalim.Infrastructure.HashGenerator;
 using NajotTalim.Infrastructure.Persistence;
 
 namespace NajotTalim.Infrastructure.Services
@@ -9,12 +9,15 @@ namespace NajotTalim.Infrastructure.Services
     {
         private readonly ApplicationDbContext _context;
         private readonly ITokenService _tokenService;
+        private readonly IHashProvider _hashProvider;
 
         public AuthService(ApplicationDbContext context,
-            ITokenService tokenService)
+            ITokenService tokenService,
+            IHashProvider hashProvider)
         {
             _context = context;
             _tokenService = tokenService;
+            _hashProvider = hashProvider;
         }
         public async Task<string> LoginAsync(string username, string password)
         {
@@ -24,7 +27,7 @@ namespace NajotTalim.Infrastructure.Services
                 throw new Exception("User not found");
             }
 
-            if (user.PasswordHash != GenerateHash.GetHash(password))
+            if (user.PasswordHash != _hashProvider.GetHash(password))
             {
                 throw new Exception("Password is wrong");
             }

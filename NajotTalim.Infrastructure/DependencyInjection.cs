@@ -3,8 +3,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using NajotTalim.Application.Abstractions;
 using NajotTalim.Domain.Enums;
 using NajotTalim.Infrastructure.Abstractions;
+using NajotTalim.Infrastructure.HashGenerators;
 using NajotTalim.Infrastructure.Persistence;
 using NajotTalim.Infrastructure.Services;
 using System.Text;
@@ -21,8 +23,10 @@ namespace NajotTalim.Infrastructure
                 options.UseNpgsql(configuration.GetConnectionString("DefaultConnection"));
             });
 
+            services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
             services.AddScoped<ITokenService, JWTToken>();
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IHashProvider, HashProvider>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                     .AddJwtBearer(options =>

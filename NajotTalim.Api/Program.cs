@@ -1,9 +1,12 @@
 using Microsoft.OpenApi.Models;
+using NajotTalim.Application;
 using NajotTalim.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddApplication();
+
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
@@ -15,7 +18,7 @@ builder.Services.AddSwaggerGen(options =>
         Title = "NajotEdu",
         Description = "NajotEdu Description"
     });
-    options.AddSecurityDefinition("Bearer",new OpenApiSecurityScheme()
+    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
     {
         Scheme = "Bearer",
         BearerFormat = "JWT",

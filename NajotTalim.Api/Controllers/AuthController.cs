@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using NajotTalim.Api.Models;
 using NajotTalim.Infrastructure.Abstractions;
 
@@ -18,7 +17,7 @@ namespace NajotTalim.Api.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginRequest loginRequest)
         {
-           var token =  await _authService.LoginAsync(loginRequest.UserName,loginRequest.Password);
+            var token = await _authService.LoginAsync(loginRequest.UserName, loginRequest.Password);
 
             return Ok(token);
         }
