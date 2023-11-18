@@ -1,11 +1,12 @@
-﻿using System.Security.Cryptography;
+﻿using NajotTalim.Application.Abstractions;
+using System.Security.Cryptography;
 using System.Text;
 
-namespace NajotTalim.Infrastructure.HashGenerator
+namespace NajotTalim.Infrastructure.HashGenerators
 {
-    public class GenerateHash
+    public class HashProvider : IHashProvider
     {
-        public static string GetHash(string password)
+        public string GetHash(string password)
         {
             const int keySize = 64;
             const int itearations = 35000;

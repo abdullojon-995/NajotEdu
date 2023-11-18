@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\NajotTalim.Application\NajotTalim.Application.csproj" />
     <ProjectReference Include="..\NajotTalim.Domain\NajotTalim.Domain.csproj" />
   </ItemGroup>
 

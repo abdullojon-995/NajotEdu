@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NajotTalim.Application.Abstractions;
 using NajotTalim.Domain.Entities;
 using NajotTalim.Infrastructure.Persistence.EntityTypeConfigurations;
 
 namespace NajotTalim.Infrastructure.Persistence
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : DbContext, IApplicationDbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
