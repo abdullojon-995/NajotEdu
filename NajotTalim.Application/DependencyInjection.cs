@@ -8,8 +8,9 @@ namespace NajotTalim.Application
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            services.AddScoped<ITeacherService,TeacherService>();
-            services.AddScoped<IStudentService,StudentService>();
+            services.AddScoped<ITeacherService, TeacherService>();
+            services.AddScoped<IStudentService, StudentService>();
+            services.AddScoped<IGroupService, GroupService>();
 
             return services;
         }

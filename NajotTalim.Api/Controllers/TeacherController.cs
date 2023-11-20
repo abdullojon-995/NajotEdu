@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NajotTalim.Application.Abstractions;
 using NajotTalim.Application.Models;
@@ -45,9 +44,9 @@ namespace NajotTalim.Api.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-             await _teacherService.DeleteAsync(id);
+            await _teacherService.DeleteAsync(id);
 
-             return Ok();
+            return Ok();
         }
 
         [HttpPut]
