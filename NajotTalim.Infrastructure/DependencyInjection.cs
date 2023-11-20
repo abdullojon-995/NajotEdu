@@ -51,6 +51,8 @@ namespace NajotTalim.Infrastructure
                 });
             });
 
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior",true);
+
             return services;
         }
     }

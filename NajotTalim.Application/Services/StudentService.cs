@@ -29,14 +29,14 @@ namespace NajotTalim.Application.Services
 
         public async Task DeleteAsync(int id)
         {
-           var student = await _context.Students.FirstOrDefaultAsync(x => x.Id == id);
-           if (student == null)
+            var student = await _context.Students.FirstOrDefaultAsync(x => x.Id == id);
+            if (student == null)
             {
                 throw new Exception("Not found");
             }
 
-           _context.Students.Remove(student);
-           await _context.SaveChangesAsync();
+            _context.Students.Remove(student);
+            await _context.SaveChangesAsync();
         }
 
         public async Task<List<StudentViewModel>> GetAllAsync()
@@ -47,7 +47,7 @@ namespace NajotTalim.Application.Services
                 FullName = x.FullName,
                 BirthDate = x.BirthDate,
                 PhoneNumber = x.PhoneNumber
-            }).ToListAsync(); 
+            }).ToListAsync();
         }
 
         public async Task<StudentViewModel> GetByIdAsync(int id)
