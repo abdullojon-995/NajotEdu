@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using NajotTalim.Application.Abstractions;
+using NajotTalim.Application.Services;
 using NajotTalim.Domain.Enums;
 using NajotTalim.Infrastructure.Abstractions;
 using NajotTalim.Infrastructure.HashGenerators;
@@ -24,6 +25,7 @@ namespace NajotTalim.Infrastructure
             });
 
             services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
+            services.AddScoped<ICurrentUserService, CurrentUserService>();
             services.AddScoped<ITokenService, JWTToken>();
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IHashProvider, HashProvider>();
@@ -51,7 +53,7 @@ namespace NajotTalim.Infrastructure
                 });
             });
 
-            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior",true);
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
             return services;
         }
