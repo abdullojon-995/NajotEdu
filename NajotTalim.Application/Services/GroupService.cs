@@ -26,8 +26,8 @@ namespace NajotTalim.Application.Services
 
             _context.Groups.Add(entity);
 
-            var lessons = CreateLessons(entity,model.LessonStartTime,model.LessonEndTime);
-            
+            var lessons = CreateLessons(entity, model.LessonStartTime, model.LessonEndTime);
+
             _context.Lessons.AddRange(lessons);
 
             await _context.SaveChangesAsync();
@@ -88,6 +88,22 @@ namespace NajotTalim.Application.Services
             await _context.SaveChangesAsync();
         }
 
+        public async Task<List<LessonViewModel>> GetLessonsAsync(int groupId)
+        {
+            var lesson = await _context.Lessons.Include(x => x.Group)
+                .Where(x => x.GroupId == groupId)
+                .Select(x => new LessonViewModel()
+                {
+                    Id = x.Id,
+                    GroupId = x.GroupId,
+                    StartDateTime = x.StartDateTime,
+                    EndDateTime = x.EndDateTime
+                })
+                .ToListAsync();
+
+            return lesson;
+        }
+
         public async Task AddStudentAsync(AddStudentGroupModel model, int groupId)
         {
             if (!await _context.Students.AnyAsync(x => x.Id == model.StudentId))
@@ -124,7 +140,7 @@ namespace NajotTalim.Application.Services
             await _context.SaveChangesAsync();
         }
 
-        private List<Lesson> CreateLessons(Group entity,TimeSpan lessonStartTime,TimeSpan lessonEndTime)
+        private List<Lesson> CreateLessons(Group entity, TimeSpan lessonStartTime, TimeSpan lessonEndTime)
         {
             var lessons = new List<Lesson>();
 
