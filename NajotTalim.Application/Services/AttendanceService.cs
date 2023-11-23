@@ -10,7 +10,7 @@ namespace NajotTalim.Application.Services
         private readonly IApplicationDbContext _context;
         private readonly ICurrentUserService _currentUserService;
 
-        public AttendanceService(IApplicationDbContext context,ICurrentUserService currentUserService)
+        public AttendanceService(IApplicationDbContext context, ICurrentUserService currentUserService)
         {
             _context = context;
             _currentUserService = currentUserService;

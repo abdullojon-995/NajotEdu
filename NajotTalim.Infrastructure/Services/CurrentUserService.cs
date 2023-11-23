@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using NajotTalim.Application.Abstractions;
 using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
 
 namespace NajotTalim.Application.Services
 {
@@ -14,7 +13,7 @@ namespace NajotTalim.Application.Services
 
             var idClaim = userClaims.FirstOrDefault(x => x.Type == JwtRegisteredClaimNames.Name);
 
-            if (idClaim != null && int.TryParse(idClaim.Value,out int value))
+            if (idClaim != null && int.TryParse(idClaim.Value, out int value))
             {
                 UserId = value;
             }
