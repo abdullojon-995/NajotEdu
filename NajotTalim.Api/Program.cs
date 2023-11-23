@@ -54,6 +54,7 @@ if (app.Environment.IsDevelopment())
         options.SwaggerEndpoint("/swagger/V1/swagger.json", "NajotEdu Api");
     });
 }
+app.UseStaticFiles();
 
 app.UseHttpsRedirection();
 
