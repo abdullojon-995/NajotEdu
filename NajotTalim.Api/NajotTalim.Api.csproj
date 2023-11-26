@@ -15,11 +15,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\NajotTalim.Infrastructure\NajotTalim.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NajotTalim.Infrastructure\NajotTalim.Infrastructure.csproj" />
+    <Folder Include="wwwroot\Files\" />
   </ItemGroup>
 
 </Project>
