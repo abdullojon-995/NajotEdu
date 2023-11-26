@@ -28,7 +28,7 @@ namespace NajotTalim.Infrastructure
             services.AddScoped<ICurrentUserService, CurrentUserService>();
             services.AddScoped<ITokenService, JWTToken>();
             services.AddScoped<IAuthService, AuthService>();
-            services.AddScoped<IHashProvider, HashProvider>();
+            services.AddSingleton<IHashProvider, HashProvider>();
             services.AddScoped<IFileService, FileService>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
